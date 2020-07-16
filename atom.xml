@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-24T06:31:25.328Z</updated>
+  <updated>2020-07-16T04:03:29.645Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,15 +18,24 @@
   
   <entry>
     <title>hexo博客搭建过程</title>
-    <link href="http://yoursite.com/2020/05/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
-    <id>http://yoursite.com/2020/05/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</id>
-    <published>2020-05-03T05:39:32.438Z</published>
-    <updated>2020-04-24T06:31:25.328Z</updated>
+    <link href="http://yoursite.com/2020/07/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
+    <id>http://yoursite.com/2020/07/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</id>
+    <published>2020-07-15T02:59:57.421Z</published>
+    <updated>2020-07-16T04:03:29.645Z</updated>
     
     <summary type="html">
     
       &lt;hr&gt;
-&lt;p&gt;title: hexo博客搭建过程&lt;br&gt;date: 2020-04-24 12:02:25&lt;br&gt;tags:hexo&lt;br&gt;主要内容如下：&lt;br&gt;一、搭建环境&lt;br&gt;二、生成博客&lt;br&gt;三、将hexo博客部署到github上&lt;br&gt;四、hexo博客的简单使用&lt;br&gt;五、为hexo博客更换yilia主题&lt;/p&gt;
+&lt;p&gt;title: hexo博客搭建过程&lt;br&gt;date: 2020-04-24 12:02:25&lt;br&gt;tags:hexo&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;主要内容如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;搭建环境&lt;/li&gt;
+&lt;li&gt;生成博客&lt;/li&gt;
+&lt;li&gt;将hexo博客部署到github上&lt;/li&gt;
+&lt;li&gt;hexo博客的简单使用&lt;/li&gt;
+&lt;li&gt;为hexo博客更换yilia主题&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     

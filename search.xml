@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo博客搭建过程</title>
+    <url>/2020/07/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<hr>
+<p>title: hexo博客搭建过程<br>date: 2020-04-24 12:02:25<br>tags:hexo</p>
+<hr>
+<p>主要内容如下：</p>
+<ol>
+<li>搭建环境</li>
+<li>生成博客</li>
+<li>将hexo博客部署到github上</li>
+<li>hexo博客的简单使用</li>
+<li>为hexo博客更换yilia主题</li>
+</ol>
+<a id="more"></a>
+
+<hr>
+<h1 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h1><h2 id="1、安装node-js和git软件"><a href="#1、安装node-js和git软件" class="headerlink" title="1、安装node.js和git软件"></a>1、安装node.js和git软件</h2><p>在win10上安装软件node.js和git,根据系统属性选择要安装软件，本机安装的软件均是Windows 64位。</p>
+<pre>C:\Windows\system32>node -v 
+v12.16.2
+C:\Windows\system32>npm -v
+6.14.4</pre>
+
+<p>！<a href="hexo博客搭建过程/1查看版本.jpg">查看软件版本号</a></p>
+<h2 id="2、环境配置"><a href="#2、环境配置" class="headerlink" title="2、环境配置"></a>2、环境配置</h2><h3 id="（1）git环境变量配置（本机Git安装路径为E-Git）"><a href="#（1）git环境变量配置（本机Git安装路径为E-Git）" class="headerlink" title="（1）git环境变量配置（本机Git安装路径为E:\Git）"></a>（1）git环境变量配置（本机Git安装路径为E:\Git）</h3><p>右键“计算机”，依次点击“属性”——&gt;“高级系统设置”——&gt;“环境变量”在用户变量里的“path”添加git安装路径：<br>1)E:\Git\bin<br>2)E:\Git\mingw64\libexec\git-core<br>3)E:\Git\mingw64\bin</p>
+<p>！<a href="hexo博客搭建过程/2环境配置.png">环境变量</a></p>
+<p>！<a href="hexo博客搭建过程/2.1环境配置.png">编辑环境变量</a></p>
+<h3 id="（2）检验软件是否安装成功"><a href="#（2）检验软件是否安装成功" class="headerlink" title="（2）检验软件是否安装成功"></a>（2）检验软件是否安装成功</h3><p>以管理员的身份打开CMD输入node -v按回车键，会显示node软件的版本号；输入npm -v按回车键，会显示npm的版本号；输入git按回车键，观察是否出现git命令的用法，若未出现，则表明环境变量可能配置有误。</p>
+<p>！<a href="hexo博客搭建过程/2.2git.png">检验git</a></p>
+<h3 id="（3）配置node-本机node-js安装目录为E-nodejs"><a href="#（3）配置node-本机node-js安装目录为E-nodejs" class="headerlink" title="（3）配置node(本机node.js安装目录为E:\nodejs)"></a>（3）配置node(本机node.js安装目录为E:\nodejs)</h3><p>1）配置npm的全局模块的存放路径以及cache的路径，在node.js的安装目录里新建node_global和node_cache两个空文件夹。</p>
+<p>！<a href="hexo博客搭建过程/3新建文件夹.png">新建文件夹</a></p>
+<p>2）对npm进行配置，以管理员的身份进入CMD，在CMD中分别输入：</p>
+<pre>npm config set prefix "E:\nodejs\node_global"  //按回车键
+npm config set cache "E:\nodejs\node_cache"  //按回车键</pre>
+
+<p>！<a href="hexo博客搭建过程/3.1配置.png">配置</a></p>
+<h2 id="3、安装淘宝镜像（为提高速度，可安装淘宝镜像）"><a href="#3、安装淘宝镜像（为提高速度，可安装淘宝镜像）" class="headerlink" title="3、安装淘宝镜像（为提高速度，可安装淘宝镜像）"></a>3、安装淘宝镜像（为提高速度，可安装淘宝镜像）</h2><p>（1）在CMD中输入npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org按回车键进行安装。" target="_blank" rel="noopener">http://registry.npm.taobao.org按回车键进行安装。</a></p>
+<pre>npm install -g cnpm --registry=http://registry.npm.taobao.org</pre>
+<p>（2）输入cnpm -v查看版本</p>
+<pre>cnpm -v</pre>
+
+<p>！<a href="hexo博客搭建过程/4淘宝镜像.png">安装淘宝镜像</a></p>
+<h2 id="4、安装hexo框架"><a href="#4、安装hexo框架" class="headerlink" title="4、安装hexo框架"></a>4、安装hexo框架</h2><p>（1）在CMD中使用命令cnpm install -g hexo-cli安装hexo框架</p>
+<p>！<a href="hexo博客搭建过程/5hexo框架.png">安装hexo框架</a></p>
+<p>（2）使用命令hexo -v查看hexo版本</p>
+<p>！<a href="hexo博客搭建过程/6hexo版本.png">查看hexo版本</a></p>
+<p>代码如下：</p>
+<pre>cnpm install -g hexo-cli
+hexo -v</pre>
+
+<hr>
+<h1 id="二、生成博客"><a href="#二、生成博客" class="headerlink" title="二、生成博客"></a>二、生成博客</h1><ol>
+<li>首先，新建一个空文件夹用于存放博客文件，本机的文件夹为blog，路径为H:\blog。</li>
+<li>然后，在CMD中输入H:进入H盘，输入cd /blog进入blog文件夹。</li>
+<li>接着，在CMD中输入命令hexo init生成博客并初始化。</li>
+</ol>
+<p>！<a href="hexo博客搭建过程/7生成博客.png">初始化博客</a></p>
+<ol start="4">
+<li>最后，在CMD中输入命令hexo s启动本地博客服务，在线预览。到此步，博客已创建完毕。可以通过网址访问预览博客。</li>
+</ol>
+<p><a href="http://localhost:4000" target="_blank" rel="noopener">网址</a></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/8%E5%90%AF%E5%8A%A8.png" alt="启动博客"></p>
+<p>代码过程如下：</p>
+<pre>C:\Windows\system32>H:
+H:\>cd /blog
+H:\blog>hexo init
+H:\blog>hexo s
+</pre>
+<p>但此时的博客只能自己看到，若要更多人看到，则需要将hexo博客部署到远端。本机将hexo博客部署到github上，无需购买域名，免费试用。</p>
+<hr>
+<h1 id="三、部署到github上"><a href="#三、部署到github上" class="headerlink" title="三、部署到github上"></a>三、部署到github上</h1><ol>
+<li>首先需要注册一个github账号，然后新建仓库。在登陆的头像右边，点击“+”号，选择NEW repository。仓库创建成功后，github页面会出现一个SSH，记住这个SSH，复制下来。<br>注：仓库名称必须设置为：账号名.github.io，比如账号为ds123，则仓库名需要设置为ds123.github.io。</li>
+<li>在CMD中输入cnpm install –save hexo-deployer-git安装插件。</li>
+</ol>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/12%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.png" alt="安装插件"></p>
+<p>（1）使用命令dir查看blog文件夹下的文件，找到文件_config.yml。</p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/17%E4%BF%AE%E6%94%B9.png" alt="hexo clean"></p>
+<p>（2）使用命令notepad _config.yml修改_config.yml文件内容，进入到该文件并找到该文件最下面的#Deployment部分，修改后如下（只写修改过的部分，没写就是没修改）：<br>deploy:<br> type:git<br> repo：填入你创建仓库成功后的SSH，即：<a href="https://github.com/你的账号/你的账号.github.io.git" target="_blank" rel="noopener">https://github.com/你的账号/你的账号.github.io.git</a><br> branch:master</p>
+<pre><code>H:\&gt;cd /blog
+H:\blog&gt;dir
+H:\blog&gt;notepad _config.yml</code></pre><p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/12.1%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6.png" alt="修改_config.yml文件"></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/12.2%E4%BF%AE%E6%94%B9.png" alt="_config.yml文件修改内容"></p>
+<ol start="3">
+<li><p>另外，在计算机里找到blog所在的硬盘，修改H:\blog.deploy_git.git路径下的config文件。进入到config文件，输入你的github账号信息，账号邮箱和账号。如下所示：</p>
+<pre><code>[user]
+       email=你注册github账号时用的邮箱（如：xxxxxxxxx@qq.com）
+      name=你的账号(如：ds123)
+ [branch &quot;master&quot;]
+       remote = https://github.com/你的账号/你的账号.github.io.git
+       merge = refs/heads/master</code></pre></li>
+</ol>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/13%E4%BF%AE%E6%94%B9.png" alt="config文件修改内容"></p>
+<p>注意.git文件是隐藏文件,需要设置成显示隐藏文件，在上方的菜单栏里，点击“查看”，即可看到显示隐藏文件的设置。</p>
+<ol start="4">
+<li><p>开始将hexo部署到github仓库<br>在CMD内进入到blog文件夹内，然后输入命令hexo d即可完成部署。在部署过程中，会让你输入你的github账号邮箱和密码，即登陆一遍。至此部署完毕，其他人即可通过网址https://你的账号.github.io访问你的博客。</p>
+<pre><code>H：\blog&gt;hexo d</code></pre></li>
+</ol>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/14%E9%83%A8%E7%BD%B2.png" alt="部署"></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/15%E7%99%BB%E9%99%86.png" alt="登陆"></p>
+<hr>
+<h1 id="四、hexo博客的简单使用"><a href="#四、hexo博客的简单使用" class="headerlink" title="四、hexo博客的简单使用"></a>四、hexo博客的简单使用</h1><h2 id="1、新建hexo博客文章"><a href="#1、新建hexo博客文章" class="headerlink" title="1、新建hexo博客文章"></a>1、新建hexo博客文章</h2><p>在CMD中输入hexo n 文章标题，这时，/blog/source/_posts目录下会产生一个文章标题.md的文件，使用命令notepad 文章标题.md即可编辑文章的内容。另外，windows系统中，也可以之间进入文件内，使用记事本编辑文章内容。<br>CMD内创建文章步骤如下所示：</p>
+<pre><code>H:\blog&gt;hexo n &quot;文章标题&quot;
+H:\blog&gt;notepad 文章标题.md </code></pre><p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/9%E6%A0%87%E9%A2%98.png" alt="创建文章"></p>
+<h2 id="2-发布文章"><a href="#2-发布文章" class="headerlink" title="2. 发布文章"></a>2. 发布文章</h2><p>在CMD中进入blog文件夹内，首先，使用命令hexo clean清理一下，然后使用命令hexo g生成，接着使用命令hexo s即可更新你刚创建的文章，在线预览无误后，可以使用hexo d命令，将博客更新内容部署到远端。（注：每次发布都需要重新清理、生成）</p>
+<pre><code>H:\blog&gt;hexo clean //清理一下
+H:\blog&gt;hexo g     //生成
+H:\blog&gt;hexo s     //预览
+H:\blog&gt;hexo d     //推送到远端    </code></pre><p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/10%E6%B8%85%E7%90%86.png" alt="清理"></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/17.3.png" alt="预览及生成"></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/19.png" alt="推送到远端"></p>
+<hr>
+<h1 id="五、更改主题"><a href="#五、更改主题" class="headerlink" title="五、更改主题"></a>五、更改主题</h1><h2 id="1-选择要更换的主题"><a href="#1-选择要更换的主题" class="headerlink" title="1. 选择要更换的主题"></a>1. 选择要更换的主题</h2><p>首先，你需要知道你更改主题的地址。这里选用<a href="https://github.com/litten/hexo-theme-yilia的主题。" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia的主题。</a></p>
+<p><a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">yilia主题地址</a></p>
+<h2 id="2-克隆主题"><a href="#2-克隆主题" class="headerlink" title="2. 克隆主题"></a>2. 克隆主题</h2><p>以管理员的身份运行CMD，进入到blog文件夹内，使用命令git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> /themes/yilia将主题克隆到本地blog\themes\yilia文件夹内。</p>
+<pre><code>H:\blog&gt;git clone https://github.com/litten/hexo-theme-yilia.git /themes/yilia</code></pre><p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/16%E5%85%8B%E9%9A%86%E4%B8%BB%E9%A2%98.png" alt="克隆主题"></p>
+<h2 id="3-修改主题配置文件"><a href="#3-修改主题配置文件" class="headerlink" title="3. 修改主题配置文件"></a>3. 修改主题配置文件</h2><p>使用命令notepad _config.yml修改blog文件夹内的_config.yml文件，修改内容如下：<br>找到#Extensions部分，将该部分上的theme改为yilia主题，更改后为theme：yilia。</p>
+<pre><code>H:\blog&gt;notepad _config.yml</code></pre><p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/17.1.png" alt="编辑配置文件"></p>
+<p><img src="hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/17.2.png" alt="修改配置文件"></p>
+<h2 id="4-重新清理及生成"><a href="#4-重新清理及生成" class="headerlink" title="4. 重新清理及生成"></a>4. 重新清理及生成</h2><p>依次使用命令hexo clean、hexo g，重新清理及生成，使用命令hexo s在线预览本地博客更改后的效果，若无误，则使用命令hexo d,将更新内容推送到远端github上。</p>
+<pre><code>H:\blog&gt;hexo clean //清理一下
+H:\blog&gt;hexo g     //生成
+H:\blog&gt;hexo s     //预览
+H:\blog&gt;hexo d     //推送到远端</code></pre><p><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">本笔记来源于B站</a></p>
+<p><a href="https://www.codesheep.cn/" target="_blank" rel="noopener">CodeSheep博客</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/04/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -16,15 +142,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo博客搭建过程</title>
-    <url>/2020/05/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<hr>
-<p>title: hexo博客搭建过程<br>date: 2020-04-24 12:02:25<br>tags:hexo<br>主要内容如下：<br>一、搭建环境<br>二、生成博客<br>三、将hexo博客部署到github上<br>四、hexo博客的简单使用<br>五、为hexo博客更换yilia主题</p>
-<a id="more"></a>
-<p>一、搭建环境<br>1、在win10上安装软件node.js和git,根据系统属性选择要安装软件，本机安装的软件均是windows 64位<br>（1）git环境变量配置（本机Git安装路径为E:\Git）<br>右键“计算机”，依次点击“属性”——&gt;“高级系统设置”——&gt;“环境变量”在用户变量里的“path”添加git安装路径：<br>1）E:\Git\bin<br>2)E:\Git\mingw64\libexec\git-core<br>3)E:\Git\mingw64\bin<br>（2）检验软件是否安装成功<br>以管理员的身份打开CMD输入node -v按回车键，会显示node软件的版本号；输入npm -v按回车键，会显示npm的版本号；输入git按回车键，观察是否出现git命令的用法，若未出现，则表明环境变量可能配置有误。<br>（3）配置node(本机node.js安装目录为E:\nodejs)<br>1）配置npm的全局模块的存放路径以及cache的路径，在node.js的安装目录里新建node_global和node_cache两个空文件夹<br>2）对npm进行配置，以管理员的身份进入CMD，在CMD中分别输入：<br>npm config set prefix “E:\nodejs\node_global”按回车键<br>npm config set cache “E:\nodejs\node_cache”按回车键<br>2、安装淘宝镜像（为提高速度，可安装淘宝镜像）<br>（1）在CMD中输入npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org按回车键进行安装" target="_blank" rel="noopener">http://registry.npm.taobao.org按回车键进行安装</a><br>（2）输入cnpm -v查看版本<br>3、安装hexo框架<br>（1）在CMD中使用命令cnpm install -g hexo-cli安装hexo框架<br>（2）使用命令hexo -v查看hexo版本<br>二、生成博客<br>1、首先，新建一个空文件夹用于存放博客文件，本机的文件夹为blog，路径为H:\blog。<br>2、然后，在CMD中输入H:进入H盘，输入cd /blog进入blog文件夹。<br>3、接着，在CMD中输入命令hexo init初始化博客。<br>4、最后，在CMD中输入命令hexo s启动本地博客服务，在线预览。到此步，博客已创建完毕。你可以通过网址：<a href="http://localhost:4000访问你的博客。">http://localhost:4000访问你的博客。</a><br>但此时的博客只能自己看到，若要更多人看到，则需要将hexo博客部署到远端。本机将hexo博客部署到github上，无需购买域名，免费试用。<br>三、部署到github上<br>1、首先需要注册一个github账号，然后新建仓库。在登陆的头像右边，点击“+”号，选择NEW repository。仓库创建成功后，github页面会出现一个SSH，记住这个SSH，复制下来。<br>注：仓库名称必须设置为：账号名.github.io，比如账号为ds123，则仓库名需要设置为ds123.github.io。<br>2、在CMD中输入cnpm install –save hexo-deployer-git安装插件。<br>（1）使用命令dir查看blog文件夹下的文件，找到文件_config.yml。<br>（2）使用命令notepad _config.yml修改_config.yml文件内容，进入到该文件并找到该文件最下面的#Deployment部分，修改后如下（只写修改过的部分，没写就是没修改）：<br>deploy:<br> type:git<br> repo：填入你创建仓库成功后的SSH，即：<a href="https://github.com/你的账号/你的账号.github.io.git" target="_blank" rel="noopener">https://github.com/你的账号/你的账号.github.io.git</a><br> branch:master<br>3、另外，需要修改文件H:\blog.deploy_git.git\config文件。进入到config文件，输入你的github账号信息，账号邮箱和账号。如下所示：<br>[user]<br>      email=你注册github账号时用的邮箱（如：<a href="mailto:xxxxxxxxx@qq.com">xxxxxxxxx@qq.com</a>）<br>      name=你的账号(如：ds123)<br>[branch “master”]<br>      remote = <a href="https://github.com/你的账号/你的账号.github.io.git" target="_blank" rel="noopener">https://github.com/你的账号/你的账号.github.io.git</a><br>      merge = refs/heads/master<br>注意.git文件是隐藏文件,需要设置成显示隐藏文件，在上方的菜单栏里，点击“查看”，即可看到显示隐藏文件的设置。<br>4、开始将hexo部署到github仓库<br>在CMD内进入到blog文件夹内，然后输入命令hexo d即可完成部署。在部署过程中，会让你输入你的github账号邮箱和密码，即登陆一遍。至此部署完毕，其他人即可通过网址https://你的账号.github.io访问你的博客。<br>四、hexo博客的简单使用<br>1、在CMD中输入hexo n 文章标题，这时，/blog/source/_posts内会产生一个文章标题.md的文件，使用命令notepad 文章标题.md即可编辑文章的内容。另外，windows系统中，也可以之间进入文件内，使用记事本编辑文章内容。<br>2、在CMD中进入blog文件夹内，首先，使用命令hexo clean清理一下，然后使用命令hexo g生成，接着使用命令hexo s即可更新你刚创建的文章，在线预览无误后，可以使用hexo d命令，将博客更新内容部署到远端。<br>五、更改主题<br>1、首先，你需要知道你更改主题的地址。这里选用<a href="https://github.com/litten/hexo-theme-yilia的主题，其主题地址为：https://github.com/litten/hexo-theme-yilia.git。" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia的主题，其主题地址为：https://github.com/litten/hexo-theme-yilia.git。</a><br>2、以管理员的身份运行CMD，进入到blog文件夹内，使用命令git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> /themes/yilia将主题克隆到本地blog\themes\yilia文件夹内。<br>3、使用命令notepad _config.yml修改blog文件夹内的_config.yml文件，修改内容如下：<br>找到#Extensions部分，将该部分上的theme改为yilia主题，更改后为theme：yilia。<br>4、依次使用命令hexo clean、hexo g，重新清理及生成，使用命令hexo s在线预览本地博客更改后的效果，若无误，则使用命令hexo d,将更新内容推送到远端github上。<br>本笔记来源于B站：<a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty</a><br>CodeSheep博客：<a href="https://www.codesheep.cn/" target="_blank" rel="noopener">https://www.codesheep.cn/</a></p>
 ]]></content>
   </entry>
 </search>
